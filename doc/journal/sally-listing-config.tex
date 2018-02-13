@@ -1,0 +1,25 @@
+%% sally code listings
+\lstdefinelanguage{sally}{
+  sensitive=true,
+  keywords={},
+  otherkeywords={% Operators
+      not, and, or, =, <, >, <=, >=, =>, +, *, -, /
+  },
+  keywords=[2]{define-states, define-state-type, define-transition,
+               define-transition-system, query},
+  keywordstyle=\color{orange},% operator color
+  keywordstyle=[2]\color{blue},% keyw color
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  comment=[l]{;;},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]"
+}
+
+\lstnewenvironment{sally}{\lstset{language=sally}}{}

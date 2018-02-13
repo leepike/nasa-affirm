@@ -1,0 +1,122 @@
+\subsection{Switched Ethernet Network}
+\label{ssec:swether}
+
+As a warmup to the more complicated case-studies presented in later sections,
+we start with a high-level model of a redundant, switched ethernet network.
+This network provides broadcast communication among a set of $n$ nodes and
+provides redundancy through a set of $m$ independent switches. Figure
+\ref{fig:swether-diagram} depicts the network for the choice of 3 nodes and 2
+switches.
+
+\begin{figure}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,thick,
+  main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries,
+                   minimum size=15mm},
+  switch node/.style={rectangle,draw,fill=black!20,minimum size=10mm},
+  end node/.style={circle,draw,fill=blue!20,minimum size=8mm}]
+
+  \node[main node] (A)               {$A$};
+  \node[main node] (B) [right of=A]  {$B$};
+  \node[main node] (C) [right of=B]  {$C$};
+
+  \node[end node] (EA) [below of=A]   {$E_A$};
+  \node[end node] (EB) [right of=EA]  {$E_B$};
+  \node[end node] (EC) [right of=EB]  {$E_C$};
+
+  \node[switch node] (S1) [below of=EA] {$S_1$};
+  \node[switch node] (S2) [below of=EC] {$S_2$};
+
+  % node to endpoints
+  \draw[<->, thick] (A) to (EA);
+  \draw[<->, thick] (B) to (EB);
+  \draw[<->, thick] (C) to (EC);
+
+  % endpoints to switches
+  \draw[<->, thick] (EA) to (S1);
+  \draw[<->, thick] (EA) to (S2);
+
+  \draw[<->, thick] (EB) to (S1);
+  \draw[<->, thick] (EB) to (S2);
+
+  \draw[<->, thick] (EC) to (S1);
+  \draw[<->, thick] (EC) to (S2);
+
+\end{tikzpicture}
+\caption{A switched ethernet network for 3 nodes and 2 switches}
+\label{fig:swether-diagram}
+\end{figure}
+
+The network operates as follows. A node, say $A$, wants to broadcast a
+message. It sends a message to an endpoint node $E_A$ that handles the
+broadcast to each of the 2 switches $S_1$ and $S_2$. When a switch receives a
+message it relays it to all the other endpoints on the network. The endpoints
+are responsible for sorting out which message to eventually deliver to the
+node. For simplicity we describe a network where endpoints deliver all
+messages they receive from switches to their corresponding node.
+
+To specify a network in LIMA we declare a function \y{mkSWEther} that takes as
+parameters a number of nodes and a number of switches and returns a list of channel
+input/output pairs. The channels are meant to be attached to user specified
+nodes in a specific order. Internally, \y{mkSWEther} builds the endpoints and
+switches as nodes and builds all the channels in between as well as those
+pointing in and out of the network which will be returned.
+
+Figure \ref{fig:swether-internal-chans} shows how the internal channels are
+built. There is a unidirectional channel for each switch and each endpoint and
+each other endpoint. They are stored in a particular order for ease of use in
+attaching them to switches and endpoints.
+
+\begin{figure}
+\begin{lima}
+-- generate the internal channels: [ [ (in_k_j, [out_1, ...]) ] ]
+-- where in_k_j goes from endpoint j to switch k and out_1 .. out_{n-1} go
+-- from switch k to the other endpoints (but not the j-th).
+internalChans <-
+  forM rm # \k ->       -- loop over switches
+    forM rn # \j -> do  -- loop over endpoints
+      in_k_j <- channel (printf "in_s%d_e%d" k j) typ
+      let mkOChan i = do c <- channel (printf "out_s%v_e%v_e%v" k j i) typ
+                         return (i,c)
+      outs <- mapM mkOChan (bar j)
+      return (in_k_j, outs)
+\end{lima}
+\caption{Declaration of internal channels}
+\label{fig:swether-internal-chans}
+\end{figure}
+
+The switches are built from atoms having $n$ handler sub-atoms. Each handler
+listens to a particular incoming channel (from one of the endpoints) and
+whenever it sees a message there it broadcasts it out to all the other
+endpoints. The declaration of switches is seen in Figure
+\ref{fig:swether-switches}.
+
+\begin{figure}
+\begin{lima}
+-- generate the switches:
+-- each one listes on each incoming chan and broadcast to all outgoing chans
+forM_ rm # \k ->
+  atom (printf "sw%v" k) # do
+    let myChans = internalChans !! k  -- :: [ (in_k_j, outs) ]_j
+    forM_ rn # \j -> do
+      let (myIn, myOuts) = myChans !! j
+      atom (printf "handler_%v_%v" k j) # do
+        cond # fullChannel (snd myIn)
+        v <- readChannel (snd myIn)
+        mapM_ ((`writeChannel` (v :: E Typ)) . fst . snd) myOuts
+\end{lima}
+\caption{Declaration of switches}
+\label{fig:swether-switches}
+\end{figure}
+
+The endpoints are mostly similar to the switches: they listen to the channel
+coming from the corresponding node and broadcast and received message to the
+switches. However, in the opposite direction we have a problem. Each endpoint
+must also listen to all the switches and decide what to do with the messages.
+Listening is not a problem, we simply declare sub-atoms for each incoming
+switch channel and setup them up to listen to the correct channel. But now we
+need these sub-atoms to write each message they receive to the one outgoing
+channel that points to the corresponding node. This is a problem because it
+means we have multiple atoms writing to the same channel. This is not allowed
+in LIMA by design. Instead we must buffer the sending of messages to the node.
+In our case-study implementation we chose to buffer messages using a FIFO
+queue of fixed length.

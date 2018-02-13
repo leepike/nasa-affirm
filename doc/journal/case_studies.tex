@@ -1,0 +1,34 @@
+%% In the initial phase of our research, we have developed a prototype
+%% Architectural Domain-Specific Language (ADSL) based workbench, translators of
+%% ADSL specifications to formal and implementation models, and initial
+%% proof-of-concept case studies. While the primary objective of ADSL workbench is
+%% to synthesize a wide spectrum of both formal models and implementation models,
+%% we only generate a subset of formal and implementation models in our initial work.
+
+As mentioned in Section~\ref{sec:problem}, our ADSL is focused on the kinds of
+systems found in avionics. Particularly, we limit ourselves to distributed
+systems with the following characteristics: a finite, fixed, and usually small
+number of nodes; a fixed number of communication channels between nodes;
+possibly local and system-wide real-time constraints; and fault-tolerance
+requirements and constraints.
+
+We present here representative case-studies, each highlighting particular
+aspects that the ADSL must handle. These case studies exercise and demonstrate
+the breadth and expressiveness of our ADSL:
+
+%% Thus far, we focus our efforts on capturing the following systems aspects:
+%%  network architectural and distributed system attributes;
+%%  Degree-of-Synchrony attributes (e.g. completely synchronous vs asynchronous vs period-synchronous) clock models;
+%%  faults;
+%%  functional properties and analysis.
+
+\begin{itemize}
+\item a high level model of a redundant, switched ethernet network
+\item the Hybrid Oral Messages protocol~\cite{Lincoln-Rushby}, \OMH(1), which is a
+    \emph{synchronous} Byzantine agreement protocol supporting a hybrid fault model;
+\item and an \emph{asynchronous} ``push-button'' brake-by-wire~\cite{a320ibiza} case-study.
+\end{itemize}
+
+For each case-study, we first informally describe the protocol or system, then
+we present its formalization in the ADSL. We focus on how the primitives and
+library functions built on those primitives succinctly capture the model.

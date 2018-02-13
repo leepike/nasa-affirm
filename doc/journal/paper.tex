@@ -1,0 +1,152 @@
+\documentclass{AIAA_REVTeX41/AIAA}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{pifont}   % http://ctan.org/pkg/pifont
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage{xspace}
+
+\usepackage{alltt}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{placeins}
+\usepackage{supertabular}
+
+%% \usepackage{pvs/pvspkg}
+
+%%%  Theorem like environments  %%%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%%%  Listings Configuration  %%%
+
+% Sally code listings
+\input{sally-listing-config}
+% LIMA code listings
+\input{lima-listing-config}
+% TEXT code listings
+\input{text-listing-config}
+
+%% VATSAN BEGIN
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\renewcommand{\lstlistingname}{Code Listing}
+%% VATSAN END
+
+%% LEE BEGIN
+\newcommand{\y}[1]{\texttt{#1}}
+\newcommand{\func}[3]{\ensuremath{#1 \, : \, #2 \rightarrow \, #3}}
+%% LEE END
+
+%% BEN BEGIN
+\newcommand{\OM}{\ensuremath{\mathrm{OM}}}
+\newcommand{\OMH}{\ensuremath{\mathrm{OMH}}}
+\newcommand{\Id}{\ensuremath{\mathrm{Id}}}
+\newcommand{\Msg}{\ensuremath{\mathrm{Msg}}}
+%% BEN END
+
+
+\usepackage{hyperref} %
+
+\newboolean{submission}  %set to true for the submission version
+%\setboolean{submission}{false}
+\setboolean{submission}{true}
+\ifthenelse
+{\boolean{submission}}
+{ %
+  \newcommand{\lee}[1]{ } %
+  \newcommand{\ben}[1]{ } %
+  \newcommand{\vatsan}[1]{ } %
+  \newcommand{\bren}[1]{ } %
+  % Put your own TODO macros here and below
+} %hide todo
+{ %
+  \newcommand{\lee}[1]{ {\color{blue}$<$lee: #1$>$} } %
+  \newcommand{\ben}[1]{ {\color{purple}$<$ben: #1$>$} } %
+  \newcommand{\vatsan}[1]{ {\color{red}$<$vatsan: #1$>$} } %
+  \newcommand{\bren}[1]{ {\color{green}$<$bren: #1$>$} } %
+  \usepackage[inline]{showlabels} %
+}
+
+\begin{document}
+
+\title{A Language for Unified Verification and Implementation for Distributed Avionics}
+
+\author{Benjamin F. Jones\footnote{Senior Research Engineer, 421 SW 6th Ave.} and Lee Pike\footnote{Research Lead}}
+\affiliation{Galois, Inc., Portland, Oregon, 97204}
+\author{Srivatsan Varadarajan\footnote{Staff Scientist} and Brendan Hall\footnote{Engineer Fellow}} \affiliation{Honeywell Advanced Technology, Golden Valley, Minnesota, 55422}
+
+\begin{abstract}
+In designing, verifying, and validating distributed systems today, an engineer is often faced with having to specify a system multiple times. For example, the engineer might specify it once in a model-checker for formal analysis, in an architectural description language for requirements analysis, and in a programming language for testing. By specifying the same system multiple times, there is risk that each specification has different semantics, so that the system tested differs from the one verified, for example. To help solve this problem, we envision an \emph{architectural domain-specific language} (ADSL), or a unified language from which formal models, executable code, and architectural models can be synthesized. To make our problem tractable, we focus on distributed fault-tolerant systems. We present the \emph{\textbf{L}anguage for \textbf{I}ntegrated \textbf{M}odeling and \textbf{A}nalysis} (LIMA), a particular ADSL that we have designed. We describe LIMA and its application to case-studies motivated by avionics design.
+\end{abstract}
+
+\maketitle
+
+\lee{%
+TODOs:
+\begin{itemize}
+\item Change pounds to dollars in LIMA examples.
+\end{itemize}
+}
+
+% ------------------------------------------------------------------------------
+\section{Introduction}
+\label{sec:problem}
+\input{problem}
+
+% ------------------------------------------------------------------------------
+
+\section{Related Work}
+\label{sec:current}
+\input{related}
+
+% ------------------------------------------------------------------------------
+
+\section{ADSL Desiderata}
+\label{sec:towards-adsl}
+\input{ADSL_Considerations}
+
+% ------------------------------------------------------------------------------
+
+\section{LIMA: an ADSL Implementation}
+\label{sec:adsl}
+\input{lima}
+
+% ------------------------------------------------------------------------------
+
+\section{Case-Studies: Representative Distributed Systems}
+\label{sec:case-studies}
+
+\input{case_studies}
+\input{swether}
+\input{om1}
+\input{push_button}
+%% \input{tdma}
+
+% ------------------------------------------------------------------------------
+\section{Conclusions}
+\label{sec:future-work}
+\input{future_work}
+
+\section*{Acknowledgments}
+This work is supported by NASA contract \#NNL14AA08C. All findings are our own and do not necessarily reflect the opinions of NASA or the United States Government.
+We particularly thank Wilfredo Torres-Pomales and Paul Miner at NASA Langley for their discussions, insights, and guidance. We thank Tom Hawkins, the original developer of the Atom language that we extend to produce LIMA.
+Portions of this paper, and particularly Section~\ref{ssec:calendar}, are adapted from a conference paper~\cite{jones:nfm17}.
+
+\section*{References}
+\bibliographystyle{unsrt}
+%\bibliographystyle{apalike}
+\bibliography{bib}
+
+\end{document}
+

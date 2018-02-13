@@ -1,0 +1,59 @@
+%% SAL code listings
+\lstdefinelanguage{sal}{
+  morekeywords=[1]{ ARRAY, BEGIN, CLAIM, CONTEXT, DATATYPE
+               , DEFINITION, END, EXISTS, FALSE, FORALL
+               , GLOBAL, INITIALIZATION , INPUT, LAMBDA
+               , LEMMA, LOCAL, MODULE
+               , OBLIGATION, OUTPUT, RENAME, THEOREM
+               , TRANSITION, TRUE, TYPE},
+  morekeywords=[2]{ AND, ELSE, ELSIF, ENDIF, IF, IN, LET, NOT, OF, OR, THEN, TO
+                  , WITH, XOR},
+  morekeywords=[3]{ BOOLEAN, INTEGER, NATURAL, NZINTEGER, NZREAL, REAL},
+  sensitive=false,
+  morecomment=[l]{\%},
+}
+
+\colorlet{keyw}{NavyBlue}
+\colorlet{numb}{RedOrange}
+\colorlet{punc}{MidnightBlue}
+\colorlet{delim}{Maroon}
+
+% call \lstset with SAL style params
+\newcommand{\lstsal}[1]{%
+    \lstset{
+        language=sal,
+        basicstyle=\ttfamily\small,
+        keywordstyle=[1]\color{keyw}\bfseries,
+        numbers=left,
+        numberstyle=\scriptsize,
+        stepnumber=1,
+        numbersep=8pt,
+        showstringspaces=false,
+        breaklines=true,
+        frame=single,
+        moredelim=**[is][\color{red}]{@}{@},
+        moredelim=**[is][\color{blue}]{/@}{@/},
+        literate=
+      *{0}{{{\color{numb}0}}}{1}
+       {1}{{{\color{numb}1}}}{1}
+       {2}{{{\color{numb}2}}}{1}
+       {3}{{{\color{numb}3}}}{1}
+       {4}{{{\color{numb}4}}}{1}
+       {5}{{{\color{numb}5}}}{1}
+       {6}{{{\color{numb}6}}}{1}
+       {7}{{{\color{numb}7}}}{1}
+       {8}{{{\color{numb}8}}}{1}
+       {9}{{{\color{numb}9}}}{1}
+       {:}{{{\color{punc}{:}}}}{1}
+       {,}{{{\color{punc}{,}}}}{1}
+       {-->}{{{\color{punc}{-->}}}}{1}
+       {\{}{{{\color{delim}{\{}}}}{1}
+       {\}}{{{\color{delim}{\}}}}}{1}
+       {(}{{{\color{delim}{(}}}}{1}
+       {)}{{{\color{delim}{)}}}}{1}
+       {[}{{{\color{delim}{[}}}}{1}
+       {]}{{{\color{delim}{]}}}}{1},
+    #1}}
+
+% new listings environment with sal listing params set
+\lstnewenvironment{sal}[1][]{\lstsal{#1}}{}

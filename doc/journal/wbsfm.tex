@@ -1,0 +1,89 @@
+
+
+The formal model  of the  Wheel Brake System closely follows the structure  of  Figures 2.
+However, to simplify the logic, and to reduce the size of the model, the
+three buttons of the brake control panel are abstracted into a single button
+that selects between manual and auto-mode operation.  The channel in control
+is also simplified from the temporal first-up raced based selection, to a  fixed-priority scheme, where a pre-configured preferred channel remains in control
+until it is faulted. Although simpler this model is sufficient to explore and demonstrate the byzantine failure vulnerability of the original system. 
+
+The formal model starts with a top-level wbs atom that is used
+to host all the system subcomponents. At the top level, three channels
+are also implemented, two to convey the button status to each of the lanes,
+and a third to convey the button state to the lane observer processes, that are used to host the properties that re to be formally investigated.
+The   implementation of the lanes leverages and illustrates DSL\ provisions for parameterized replication.
+ Using a map as shown below,  each lane is instantiated using with an assigned boolean  priority;  as described above   this priority arbitrates which lane is on control when the system is in full-up operational mode (i.e. no faults present).
+
+\begin{lima}
+ -- Declare two lanes
+  laneIns <- mapM mkLane [True, False]  -- high/low priority
+\end{lima}
+
+ The lane implementation comprises two clocked periodic processes, one each for the  command and monitor  functions, together with an  an initialization  atom. At every period, the command and monitor sample the input from the button and toggle status of a boolean  operational model variable \textit{cautoMode},  on the detection of a rising button edge.  At each period, the update status of the \textit{cautoMod}e variable is shared with the local lane monitor.
+ The DSL\ extract for this logic is shown below.
+
+
+
+\begin{lima}
+
+   cautoMode <== mux ((value bs ==. Const True) &&.
+                       (value prevbs ==. Const False))
+                      (not_ (value cautoMode))
+                      (value cautoMode)
+    writeChannel ctoIn (value framecount)  -- send 'framecount' to observer
+    writeChannel ctmIn (value cautoMode)
+      
+\end{lima}
+  The principal periodic process of the monitor atom is symmetrical to the periodic command atom. However, the monitor logic is extended with additional agreement counting logic, to monitor the agreement of the local and  command lane exchanged   \emph{cautoMode}  status. If disagreement persists   for three periods, the  monitor channel yields control to the other lane, by signaling  agreement failure.  
+
+\begin{lima}
+atom "wait_x_side_autoMode" $ do
+      cond $ fullChannel ctmOut
+      v <- readChannel ctmOut
+      xSideAutoMode <== v
+      probeP "monitor.XsideAutoMode" (value xSideAutoMode)
+
+ atom "mon_agreement" $ do
+      agreementFailureCount <==
+        mux (value mautoMode /=. value xSideAutoMode)
+            (Const one + value agreementFailureCount)
+            (Const zero)
+      -- cond $ value mautoMode /=. value xSideAutoMode
+      -- incr agreementFailureCount
+
+    atom "mon_agreement_count" $ do
+      cond $ value agreementFailureCount ==. Const three
+      agreementFailure <== Const True
+
+\end{lima}
+
+The representation of the WBS\ model in the DSL\ is very compact with the core logic only requiring about 150 lines of code.
+ When contrasted with the approximately 12,000
+lines of sally code, which the LIMA\ synthesizes,  this is a significant reduction. It may be argued, that without such a DSL and the associated synthesis, the industrial viability of sally alone may be challenging.
+
+  
+ Properties of interest  are simply asserted within any of the atoms as illustrated below. However, it should be noted that the variables used within the assert statements need to be within the atom scope.
+ To simply model construction and instrumentation, it is recommended that variables significant to system properties are sent to a top-level observer process, that can provide a central point of property specification.  
+
+
+\begin{lima}
+ atom "mon_agreement" $ do
+   agreementFailureCount <=  =
+        mux (value mautoMode /=. value xSideAutoMode)
+            (Const one + value agreementFailureCount)
+            (Const zero)
+   assert (pName pp "my assert")(value agreementFailureCount <=. Const three)
+\end{lima}
+
+In the Airbus braking example, no physical faults were actually present. Hence, in our initial model, we also omit a  fault model. However, the DSL\ framework ensures that the full state of the asynchronous interaction of the sampling and channel in control logic, will be explored within the synthesized  sally model. Therefore, the workbench is anticipated to uncover the system Byzantine failure as part of the formal model analysis.
+
+As part of future work, we intend to augment the fault model
+of the intra-lane and inter-lane, communication channels, and use the DSL\
+and workbench to explore how such failures can impact the assumed system
+level invariants,
+and safety properties. We also intend to re-introduce the first up   leader
+election protocol, which selects the initial lane in control. One again,
+we envisage that this will demonstrate how the DSL\ and formal analysis workbench will support the systematic exploration of how
+potential faults, and start-up timing variations can disrupt and impact
+system safety properties and assumptions.  \   
+

@@ -1,0 +1,27 @@
+%% lima code listings
+\lstdefinelanguage{lima}{
+  sensitive=true,
+  keywords={},
+  otherkeywords={% Operators
+      <-, <==, not\_, \&\&., ||., >., <., ==.
+  },
+  keywords=[2]{atom, channel, cond},% main keyw
+  keywords=[3]{readChannel, writeChannel, fullChannel, value, Const},% other keyw
+  keywordstyle=\color{black},% operator color
+  keywordstyle=[2]\color{blue},% keyw color
+  keywordstyle=[3]\color{brown},% other keyw color
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  comment=[l]{--},
+  morecomment=[s]{\{-}{-\}},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]"
+}
+
+\lstnewenvironment{lima}{\lstset{language=lima}}{}

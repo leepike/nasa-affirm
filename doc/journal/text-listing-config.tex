@@ -1,0 +1,15 @@
+%% plaintext code listings
+\lstdefinelanguage{plaintext}{
+  sensitive=true,
+  keywords={},
+  keywordstyle=\color{black},% operator color
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+}
+
+\lstnewenvironment{plaintext}{\lstset{language=plaintext}}{}
