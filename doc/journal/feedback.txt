@@ -34,26 +34,26 @@ DONE In the oral messages example,  an explanation of the fast majority vote alg
 
 DONE Pg 46 Figure 24 please explain the role of the PSU and acquisition modules.
 
-The final case study of the airbus auto-brake system, the model abstracts away many details in order to do the analysis. There is not really point in generating code for this abstraction. I get the sense that some sort of B like refinement needs to be integrated into the tool so you can analyze an abstraction and the tool can help one refine the abstraction into something more realistic.  I would like to see the authors comment on their preferred solution to this abstraction gap between analyzable model and implementation.
+WON'T DO The final case study of the airbus auto-brake system, the model abstracts away many details in order to do the analysis. There is not really point in generating code for this abstraction. I get the sense that some sort of B like refinement needs to be integrated into the tool so you can analyze an abstraction and the tool can help one refine the abstraction into something more realistic.  I would like to see the authors comment on their preferred solution to this abstraction gap between analyzable model and implementation.
 
 DONE Including an appendix with an introduction to the monadic syntax used throughout the paper would significantly increase readership. I doubt if many fault tolerance folks have exposure to this and it is not really possible to read the paper without knowing some.  Beyond the basics you need to explain  MapM and forM from Control.Monad because they are used  a lot.
 
 
 Typos Identified
 
-Pg 5 L 45-50. Rewrite that sentence. should probably read
+x Pg 5 L 45-50. Rewrite that sentence. should probably read
 “ …, but we designed an ADSL that makes significant advances toward it.”
 
 
-Pg 10 L35  CPS —> CSP
+x Pg 10 L35  CPS —> CSP
 
-Pg 13 L 46 A shown —> As shown
-Pg 14 L 37   A shown —> As shown
-Pg 16 L45    The last word seems garbled
-Pg 31 L33   I believe the second occurrence of recv should read send
+x Pg 13 L 46 A shown —> As shown
+x Pg 14 L 37   A shown —> As shown
+x Pg 16 L45    The last word seems garbled
+?? Pg 31 L33   I believe the second occurrence of recv should read send
 
-Pg 49 L57  re —> are
-Pg 50 L15   an an —> an
+x Pg 49 L57  re —> are
+x Pg 50 L15   an an —> an
 
 
 ===============================================================================
