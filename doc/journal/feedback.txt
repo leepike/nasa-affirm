@@ -9,10 +9,11 @@ RELEVANT FUNDING INFORMATION.  Authors are responsible for accurately reporting 
 The Editors particularly desire your specific comments on technical content, overall value, relevancy, accuracy of computed results or experimental data, and revisions needed for conciseness, clarity, and/or completeness.
 The paper under review introduces the Haskell based EDSL LIMA targeting fault-tolerant critical systems. Users build a model of their systems in terms of built in abstractions of hierarchal nested atoms and channels. The tool can be used to analyze the model using the  SALLY model checker. LIMA can automatically translate its model into a Sally model and also translate LIMA  properties into SALLY specifications that can be model checked. A code generator is used to generate  C code to implement the model.
 
-On Page 23 referencing Fig9 you should say more about the auto generated code. Like most auto generated code the variable names come of as a bit jarring when trying to figure out what is going on.  Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
+DONE On Page 23 referencing Fig9 you should say more about the auto generated code. Like most auto generated code the variable names come of as a bit jarring when trying to figure out what is going on.
 
+Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
 
-The handler is discussed on page 24 but not really explained until later.
+DONE The handler is discussed on page 24 but not really explained until later.
 
 The translation of the handler to Sally illustrated in Figure 14 needs a bit more explanation. It seems like Sally is using a language of S-expression much as they do in SMT Lib but a sentence or two to clarify things would be great.
 

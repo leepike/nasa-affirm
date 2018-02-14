@@ -414,7 +414,9 @@ the handler updates the state of the system and so in our translation it is
 represented by a transition relation. In Sally, transition relations are
 specified by predicates over the ``current'' and ``next'' states of the
 system. These are denoted by prefixing state variables with the namespaces
-``state'' and ``next''.
+``state'' and ``next''. The transition represented by the handler becomes in
+Sally a predicate. Syntatically it is an S-expression with boolean value that
+references the state variables.
 
 \begin{figure}[ht]
 \centering
