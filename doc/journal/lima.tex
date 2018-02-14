@@ -317,6 +317,12 @@ typically a tight loop with a call to the scheduler followed by a delay
 statement that should be calibrated for the platform and desired amount of
 real-time per system tick.
 
+Auto-generated code like that shown in Figure \ref{fig:code-gen-scheduler} is only
+meant to be machine readable, not human readable. One should think of this code as
+an intermediate representation on the way to native machine code. It can be used
+by human designers for debugging purposes if really needed, but the LIMA language and
+complilation tool chain is setup to avoid exposing users to these low level details.
+
 Execution of the generated code can be very useful in the design and debugging
 of systems in LIMA. To that end LIMA provides several debugging features that
 can be used along with forward execution in order to examine the state of the
