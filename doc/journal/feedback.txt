@@ -11,7 +11,7 @@ The paper under review introduces the Haskell based EDSL LIMA targeting fault-to
 
 DONE On Page 23 referencing Fig9 you should say more about the auto generated code. Like most auto generated code the variable names come of as a bit jarring when trying to figure out what is going on.
 
-Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
+DONE Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
 
 DONE The handler is discussed on page 24 but not really explained until later.
 
@@ -25,7 +25,7 @@ DONE Pg 35 L 50. the broadcast operator that confused me above is used in a pred
 DONE In the oral messages example,  an explanation of the fast majority vote algorithm implemented in Figure 22 is  needed as the implementation is a bit terse.
 
 
-Pg 46 Figure 24 please explain the role of the PSU and acquisition modules.
+DONE Pg 46 Figure 24 please explain the role of the PSU and acquisition modules.
 
 
 The final case study of the airbus auto-brake system, the model abstracts away many details in order to do the analysis. There is not really point in generating code for this abstraction. I get the sense that some sort of B like refinement needs to be integrated into the tool so you can analyze an abstraction and the tool can help one refine the abstraction into something more realistic.  I would like to see the authors comment on their preferred solution to this abstraction gap between analyzable model and implementation.

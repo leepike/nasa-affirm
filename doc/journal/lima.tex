@@ -216,14 +216,18 @@ ex4 = atom "ex4" $ do
 \end{figure}
 
 As an example, consider the specification in Figure
-\ref{fig:code-gen-example}. Two shared variables are declared and two periodic
-atoms update their values. The code generator produces a C structure
-representing the global system state; in this case it consists of two
-integers. The fields of the struct are nested in several name spaces designed
-to keep local variables in different atoms from conflicting. The two atomic
-actions are translated into ``rules''; C functions that are called by a main
-driver function. Figure \ref{fig:code-gen-rule} shows the rule generated for
-\y{atomX}. Finally, the rule functions are driven by a scheduling function
+\ref{fig:code-gen-example}. Two shared variables are declared and two
+periodic atoms update their values. The code generator produces a C
+structure representing the global system state; in this case it
+consists of two integers. The fields of the struct are nested in
+several name spaces designed to keep local variables in different
+atoms from conflicting. The two atomic actions are translated into
+``rules''; C functions that are called by a main driver
+function. Figure~\ref{fig:code-gen-rule} shows the rule generated for
+\y{atomX}. The code is mostly generated in static single-assignment
+(SSA) form, with the exception of a small number of state variables.
+
+Finally, the rule functions are driven by a scheduling function
 that is responsible for maintaining a global clock value, executing the rules
 in the correct order and time, and executing assertion statements. This is
 shown in Figure \ref{fig:code-gen-scheduler}.
@@ -320,11 +324,16 @@ typically a tight loop with a call to the scheduler followed by a delay
 statement that should be calibrated for the platform and desired amount of
 real-time per system tick.
 
-Auto-generated code like that shown in Figure \ref{fig:code-gen-scheduler} is only
+Auto-generated code like that shown in Figure~\ref{fig:code-gen-scheduler} is only
 meant to be machine readable, not human readable. One should think of this code as
 an intermediate representation on the way to native machine code. It can be used
 by human designers for debugging purposes if really needed, but the LIMA language and
 complilation tool chain is setup to avoid exposing users to these low level details.
+
+Certification (e.g., DO178-C~\cite{do178c}) of auto-generated code has
+been addressed elsewhere for tools such as Simulink and
+Stateflow~\cite{mbd-cert}. Of course, such an approach requires LIMA
+undergo tool qualification.
 
 Execution of the generated code can be very useful in the design and debugging
 of systems in LIMA. To that end LIMA provides several debugging features that
@@ -337,6 +346,8 @@ system execution by calling another special function \y{printProbe}. In Figure
 probes on certain runtime expressions and to print the values of those
 expressions out on every tick. The output generated during the example's
 execution is shown in Figure \ref{fig:code-gen-print-probes}.
+
+
 
 \begin{figure}
 \begin{lima}
