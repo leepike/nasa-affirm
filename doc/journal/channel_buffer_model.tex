@@ -21,7 +21,7 @@ The process is then reversed at the receiver. The receiver network card consumes
 
 Once the processes are correctly modeled as stated above, then we identify two types of channel buffers at either the transmitter or at the receivers:
 \begin{itemize}
-\item \emph{Queuing}: First-in-First-Out (FIFO) Order i.e. messages are taken out of the queue in the order in which data was produced into it.  The maximum size of the queue is also specified upfront $k$. If messages are not consumed at fast enough rate compared to rate at which message are produced into the buffer and once the queue is already filled with   “k” messages yet to be consumed, then produced message(s) are dropped. Not supported in year I and year II, but in year III
+\item \emph{Queuing}: First-in-First-Out (FIFO) Order i.e. messages are taken out of the queue in the order in which data was produced into it.  The maximum size of the queue is also specified upfront $k$. If messages are not consumed at fast enough rate compared to rate at which message are produced into the buffer and once the queue is already filled with "k" messages yet to be consumed, then produced message(s) are dropped. Not supported in year I and year II, but in year III
 
 \item \emph{Sampling}: New message produced overwrites old message if not consumed. Supported in year I and year II
 
