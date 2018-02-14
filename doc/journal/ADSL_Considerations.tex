@@ -166,9 +166,9 @@ Also note that as shown in the Figure~\ref{fig:channel_buffer}, there is string 
 
 The process is then reversed at the receiver. The receiver network card consumes the message from the channel and stores the message locally into its own channel buffer (network card memory). Then either the network card reads from its channel buffer and pushes the message to consuming platform process OR the consuming platform process reads from the channel buffer and then finally processes the message as it sees fit (possibly sent to a computation process).
 
-Since Produce/Transmission at $T$ and Consume/Reception(s) at $R$ can be triggered by “independent” clocked atoms (described in section \ref{subsubsec:clock_model}) at $T$ and $R(s)$. So buffer model is critical to manage the differences in rates and timing between production and consumption. Once the processes are correctly modeled as stated above, then we identify two types of channel buffers at either the transmitter or at the receivers:
+Since Produce/Transmission at $T$ and Consume/Reception(s) at $R$ can be triggered by ``independent'' clocked atoms (described in section \ref{subsubsec:clock_model}) at $T$ and $R(s)$. So buffer model is critical to manage the differences in rates and timing between production and consumption. Once the processes are correctly modeled as stated above, then we identify two types of channel buffers at either the transmitter or at the receivers:
 \begin{itemize}
-\item \emph{Queuing}: First-in-First-Out (FIFO) Order i.e. messages are taken out of the queue in the order in which data was produced into it.  The maximum size of the queue is also specified upfront $k$. If messages are not consumed at fast enough rate compared to rate at which message are produced into the buffer and once the queue is already filled with   “k” messages yet to be consumed, then produced message(s) are dropped. 
+\item \emph{Queuing}: First-in-First-Out (FIFO) Order i.e. messages are taken out of the queue in the order in which data was produced into it.  The maximum size of the queue is also specified as $k$. If messages are not consumed at fast enough rate compared to rate at which message are produced into the buffer and once the queue is already filled with ``k'' messages yet to be consumed, then produced message(s) are dropped. 
 
 \item \emph{Sampling}: New message produced overwrites old message if not consumed.
 
@@ -205,7 +205,7 @@ On the other hand, \emph{global faults} are based on relationships between
 two or more components (i.e., nodes or channels) at the system level. Examples of system
 faults include \emph{symmetric} and \emph{asymmetric} transmission faults~\cite{Tha88:RDSS}. Global faults
 may be dependent on the expected of degree of consensus~\cite{lynch}, which in itself is
-tied to the application's sensitiveness to disagreements, independence assumptions, or degree of maliciousness (e.g. assumptions on how coordinated two or more nodes can be in triggering failures). Global faults based on relationships between two or more components and can cause interactive consistency (consensus violations) and byzantine issues at the system level.
+tied to the application's sensitiveness to disagreements, independence assumptions, or degree of maliciousness (e.g. assumptions on how coordinated two or more nodes can be in triggering failures). Global faults based on relationships between two or more components can cause interactive consistency (consensus violations) and Byzantine issues at the system level.
 
 
 \begin{figure}
@@ -237,11 +237,11 @@ with the frame check sequence (FCS). If the check fails, the message is dropped,
 and if the check
 passes, then the FCS is stripped and the message is forwarded. Note that
 fault-free
-(nominal behavior) of a CRC check at the receiver is that (i) a good message
+(nominal) behavior of a CRC check at the receiver is that (i) a good message
 is
 never dropped incorrectly, (ii) a bad (corrupt) message is dropped with high
 probability, and (iii) there is also a small finite probability that a bad
-message escapes detection and drop (e.g. based on efficacy of CRC 32 etc)~\cite{crc}.
+message escapes detection and drop (e.g. based on efficacy of CRC 32 etc.)~\cite{crc}.
 
 Value Fault~1 in Figure~\ref{fig:fault_propagation} introduced in the node
 either at the indicated point or introduced upstream before that point and
@@ -260,8 +260,8 @@ e.g., a value fault transforms to an omissive fault for CRC protection.
 These will be
 specified in a static manner at every component. This way, both horizontal
 propagation of faults (CRC example) and vertical propagation of faults
-(e.g., self-checking hardware) can be modeled as component embedded
+(e.g., self-checking hardware) can be modeled as a component embedded
 in another
-component) can be captured in ADSL framework.
+component) can be captured in an ADSL framework.
 
 

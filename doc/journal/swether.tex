@@ -4,8 +4,7 @@
 As a warmup to the more complicated case-studies presented in later sections,
 we start with a high-level model of a redundant, switched ethernet network.
 This network provides broadcast communication among a set of $n$ nodes and
-provides redundancy through a set of $m$ independent switches. Figure
-\ref{fig:swether-diagram} depicts the network for the choice of 3 nodes and 2
+provides redundancy through a set of $m$ independent switches. Figure~\ref{fig:swether-diagram} depicts the network for the choice of 3 nodes and 2
 switches.
 
 \begin{figure}
@@ -61,7 +60,7 @@ nodes in a specific order. Internally, \y{mkSWEther} builds the endpoints and
 switches as nodes and builds all the channels in between as well as those
 pointing in and out of the network which will be returned.
 
-Figure \ref{fig:swether-internal-chans} shows how the internal channels are
+Figure~\ref{fig:swether-internal-chans} shows how the internal channels are
 built. There is a unidirectional channel for each switch and each endpoint and
 each other endpoint. They are stored in a particular order for ease of use in
 attaching them to switches and endpoints.
@@ -87,8 +86,7 @@ internalChans <-
 The switches are built from atoms having $n$ handler sub-atoms. Each handler
 listens to a particular incoming channel (from one of the endpoints) and
 whenever it sees a message there it broadcasts it out to all the other
-endpoints. The declaration of switches is seen in Figure
-\ref{fig:swether-switches}.
+endpoints. The declaration of switches is seen in Figure~\ref{fig:swether-switches}.
 
 \begin{figure}
 \begin{lima}
@@ -113,7 +111,7 @@ coming from the corresponding node and broadcast and received message to the
 switches. However, in the opposite direction we have a problem. Each endpoint
 must also listen to all the switches and decide what to do with the messages.
 Listening is not a problem, we simply declare sub-atoms for each incoming
-switch channel and setup them up to listen to the correct channel. But now we
+switch channel and set them up to listen to the correct channel. But now we
 need these sub-atoms to write each message they receive to the one outgoing
 channel that points to the corresponding node. This is a problem because it
 means we have multiple atoms writing to the same channel. This is not allowed

@@ -152,13 +152,12 @@ om1 = do
 In this specification we refer to the Commander as the ``source'' and the
 Lieutenants are unrolled into two sets: ``relays'' and ``receivers''. Here,
 the source broadcasts to the relays which, in turn, broadcast to the
-receivers which proceed with their vote. The code of figure
-\ref{fig:om1-setup} shows first channels being setup for communication, then
+receivers which proceed with their vote. The code of Figure~\ref{fig:om1-setup} shows first channels being setup for communication, then
 the source is declared by calling a function which we define shortly. The
 relays and receivers are also declared by calling functions provided different
 parameters.
 
-For example, figure \ref{fig:om1-relay} shows the function definition for a
+For example, Figure~\ref{fig:om1-relay} shows the function definition for a
 generic relay.
 
 \begin{figure}
@@ -192,7 +191,7 @@ receiving) and a list of channel outputs (for broadcasting). Recall that the
 \y{cond} primitive acts as a guard on the atomic action to be taken in the
 last 4 lines of the definition. In those last lines, the relay reads a message
 from the incoming channel, stores it in a local variable, sets its \y{done}
-flag, and then write that message out on each of the outgoing channels it has.
+flag, and then writes that message out on each of the outgoing channels it has.
 
 The definition of \y{recv} is similar, except that each receiver possibly makes two
 atomic actions through the declaration of two sub-atoms. The first sub-atom
@@ -204,7 +203,7 @@ argument.
 The majority vote computation is specified using the ``Fast Majority Vote''
 algorithm due to Boyer and Moore \cite{mjrty}. This algorithm requires only a
 single pass over the vote buffer. This is accomplished in our DSL using a
-right fold operation as seen in Figure \ref{fig:majority-vote}. It is worth
+right fold operation as seen in Figure~\ref{fig:majority-vote}. It is worth
 pointing out here that it is precisely this aspect, the level of detail in
 implementing the majority vote, that sets our model of \OM(1) apart from
 previous models.
@@ -236,8 +235,7 @@ The formal model generated for \OM(1) by LIMA is quite large. Whereas the LIMA
 specification file is only 5632 bytes, the Sally model LIMA generates for it
 is 110,581 bytes. The generated model has 65 state variables, 12 input
 variables, and 16 transitions in total. As an example of what the Sally model
-looks like, consider the translation of the ``agreement'' property. Figure
-\ref{fig:sally-query} shows the corresponding Sally query. The terms in the
+looks like, consider the translation of the ``agreement'' property. Figure~\ref{fig:sally-query} shows the corresponding Sally query. The terms in the
 query are rendered in $A$-normal form \cite{Sabry-Felleisen} to get maximum
 benefit from sharing sub-terms.
 
