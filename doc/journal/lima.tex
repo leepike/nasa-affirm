@@ -90,7 +90,10 @@ a message received on a channel with a receive handle \y{rx}. A channel
 must be \emph{dereferenced} to extract a value from it. In the
 declaration above, the dereferenced value, \y{v}, is stored into some
 shared-state variable \y{s} whose scope exceeds the current definition,
-and the value 42 is emitted on a channel with transmit handler \y{tx}.
+and the value 42 is emitted on a channel with transmit handler \y{tx}. Here,
+we use the term ``handler'' to mean a function that takes an incoming message
+and returns an action to perform, usually doing some computation and sending
+out new messages.
 
 Atom are hierarchical, i.e.\ an atom may contain other atoms and thus define a
 hierarchy of global state variables and sub-atoms. All atoms declared
