@@ -341,7 +341,9 @@ can be used along with forward execution in order to examine the state of the
 system as it evolves over time. A special primitive function called \y{probe}
 allows the user to setup a hook which monitors the value of any expression at
 any point of a specification. These probes can be printed out as part of the
-system execution by calling another special function \y{printProbe}. In Figure
+system execution by calling another special function \y{printProbe}. The
+utility function \y{mapM_} is standard Haskell which maps a function
+(\y{printProbes}) over a container of values (\y{probes}). In Figure
 \ref{fig:code-gen-probes}, the running example has been modified to include
 probes on certain runtime expressions and to print the values of those
 expressions out on every tick. The output generated during the example's
