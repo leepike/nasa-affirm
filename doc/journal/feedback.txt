@@ -56,25 +56,27 @@ Reviewer: 3
 <b>Comments to the Author.</b> The Editors particularly desire your specific comments on technical content, overall value, relevancy, accuracy of computed results or experimental data, and revisions needed for conciseness, clarity, and/or completeness.
 In general, this is a very well-written paper.  It is a very long paper.  I was hoping to find obvious ways to trim the paper without much success.  The ideas are well-presented, and the paper flows well.  I do doubt that systems engineers will be very excited about writing specifications and properties in a subset of Haskell, but perhaps they will like it better than Sally.
 
-Page 5, Line 44:  cut 'we have used' to make the sentence parse
-pg 6, ln 4: remove apostrophe in 'designer's'
-pg 6, ln 58: 'language'
-pg 8, ln 12: 'annotations'
-pg 8, ln 20: MILS-AADL, a derivative of SLIM, is . . . . DMILS-project [33].
-pg 8, ln 27: (RADL) [35] is a
-pg 8, ln 37: system, Radler, that
-ln 44: SysML [19] extends
-pg 9, ln 1:  for for
-pg 9, paragraph 4:  Many typos -- extra commas, missing 'an's, etc.
-ln 52: missing 'of'
-pg 10, line 56: 'Analysis'
-pg 12, line 26: . instead of ;
-line 37: 'looks'
+x Page 5, Line 44:  cut 'we have used' to make the sentence parse
+x pg 6, ln 4: remove apostrophe in 'designer's'
+x pg 6, ln 58: 'language'
+x pg 8, ln 12: 'annotations'
+x pg 8, ln 20: MILS-AADL, a derivative of SLIM, is . . . . DMILS-project [33].
+x pg 8, ln 27: (RADL) [35] is a
+x pg 8, ln 37: system, Radler, that
+x ln 44: SysML [19] extends
+x pg 9, ln 1:  for for
+x pg 9, paragraph 4:  Many typos -- extra commas, missing 'an's, etc.
+x ln 52: missing 'of'
+x pg 10, line 56: 'Analysis'
+x pg 12, line 26: . instead of ;
+x line 37: 'looks'
+
 pg 13: The last paragraph on this page is almost identical to the paragraph after Figure 3.  I'm going to assume this paragraph should be deleted.
-pg 14, ln 37: As shown
-ln 54: single
-pg 16, ln 16: broadcast are all
-line 34: into its own
+
+x pg 14, ln 37: As shown
+x ln 54: single
+x pg 16, ln 16: broadcast are all
+x line 34: into its own
 ln 43-45:  what is the gobbledygook?
 ln 58:  Doesn't parse well
 pg 17, ln 26:  gobbledygook

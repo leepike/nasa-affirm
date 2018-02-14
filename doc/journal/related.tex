@@ -2,7 +2,7 @@
 In this section, we overview related tools and approaches for modeling and verifying systems. We focus on architectural modeling languages and formal verification specialized for distributed systems, particularly noting their strengths and weaknesses with respect to specifying and reasoning about architecture, behavior, and faults in a unified way.
 
 \subsection{Architectural Modeling Languages}\label{ssec:modeling}
-The Architecture Analysis and Design Language (AADL) was one of the first system architecture languages, evolving out of the META-H~\cite{binns2001formalizing} language developed by Honeywell as part of the DARPA DASADA program. Since its conception, AADL has matured significantly and is now standardized by the Society  of Automotive Engineers (SAE) under AS5506~\cite{as5506}. AADL is primarily intended to be a system integration languages, allowing generation  of an integrated  model that address  different aspects of the system to be captured.  At the core,  AADL provides a common notation that supports the   specification of  both  logical and physical aspects  of the system architecture. The core language is component-based. The physical aspects of the system may be specified utilizing a extensible palette of hardware component primitives, such as processor, device,  and system components, which may be interconnected with bus components and access connections. 
+The Architecture Analysis and Design Language (AADL) was one of the first system architecture languages, evolving out of the META-H~\cite{binns2001formalizing} language developed by Honeywell as part of the DARPA DASADA program. Since its conception, AADL has matured significantly and is now standardized by the Society  of Automotive Engineers (SAE) under AS5506~\cite{as5506}. AADL is primarily intended to be a system integration language, allowing generation  of an integrated  model that address  different aspects of the system to be captured.  At the core,  AADL provides a common notation that supports the   specification of  both  logical and physical aspects  of the system architecture. The core language is component-based. The physical aspects of the system may be specified utilizing a extensible palette of hardware component primitives, such as processor, device,  and system components, which may be interconnected with bus components and access connections. 
  The logical notation of AADL is  also component-based.  AADL provides a number of software/logical model primitive abstractions, such as system, process, thread, subprograms, that allow for logical model specification. In the logical model, components are interconnected using data and event port connections. The core of AADL also allows for the association between the logical and physical models to be specified by binding property annotations to the model.
 
 Through a flexible annex mechanism, the  core  AADL language can be extended
@@ -31,24 +31,24 @@ dispatch semantics of the underlying platform execution model. Therefore,
 logical abstractions, such as a periodic thread dispatch, need to be explicitly
 modeled  using the SLIM behavioral language.  However, in SLIM,  behavioral and
 error modeling is integrated into the core model. Using a mechanism called model
-extension, SLIM allows these annotation to be integrated into a  formal
+extension, SLIM allows these annotations to be integrated into a  formal
 transition system model that can be used as the bases for formal analysis. Thus, SLIM supports an integrated view of nominal and error behavioral models.  This differs significantly from the AADL approach, where there is little  formal cross-annex linkage or semantics.
 
-MILS-AADL a derivative of SLIM is also under development as part of the DMILS-project\cite{dmils}.
+MILS-AADL, a derivative of AADL, is also under development as part of the DMILS-project\cite{dmils}.
 This work is also targeting synthesis towards back end formal verification tooling using BIP~\cite{basu2011rigorous}. The D-MILS project additionally targets implementation platforms based on TTEthernet.
 
-The Robot Architecture Definition Language (RADL)~\cite{li2014radl}, is a minimalist  AADL targeted towards the design of multi-rate distributed systems. It is under development by SRI. Similar to SLIM, RADL is simpler than AADL, and forgoes the more elaborate features interface and property specification.  RADL is also targeted towards a quasi-synchronous system architectural pattern, in which all nodes asynchronously execute  tasks and exchange messages at defined periodic intervals~\cite{radl}. The RADL framework also incorporates an automatic build system, \emph{Radler} that synthesizes  glue code and platform binding code. At the time of writing, RADL does not incorporate fault  modeling.
+The Robot Architecture Definition Language (RADL)~\cite{li2014radl} is a minimalist  AADL targeted towards the design of multi-rate distributed systems. It is under development by SRI. Similar to SLIM, RADL is simpler than AADL, and forgoes the more elaborate features interface and property specification.  RADL is also targeted towards a quasi-synchronous system architectural pattern, in which all nodes asynchronously execute  tasks and exchange messages at defined periodic intervals~\cite{radl}. The RADL framework also incorporates an automatic build system, \emph{Radler}, which synthesizes glue code and platform binding code. At the time of writing, RADL does not incorporate fault  modeling.
 
-SysML~\cite{SysML}extends UML to address the needs of system engineering. It has been standardized under the OMG. SysML comprises a very rich palate of notations that can be utilized to specify system structure and behaviors.  The notation is extendable, making it very adaptable to different modeling needs. Given a disciplined model-based system engineering approach, SysML can be used to capture the functional, logical and physical aspects of architecture, as demonstrated by Pearce and Friedenthal~\cite{pearce2013practical}.
+SysML~\cite{SysML} extends UML to address the needs of system engineering. It has been standardized under the OMG. SysML comprises a very rich palate of notations that can be utilized to specify system structure and behaviors.  The notation is extendable, making it very adaptable to different modeling needs. Given a disciplined model-based system engineering approach, SysML can be used to capture the functional, logical and physical aspects of architecture, as demonstrated by Pearce and Friedenthal~\cite{pearce2013practical}.
 
-Through dedicated profiles, SysML notation can be extended.  For example, via a Modelica profile~\cite{paredis20105}, SysML can be used to model continuous systems. An automated translation is also available between Modelica and SysML.  Similar translations are also under development for for VHDL-AMS~\cite{verries2013case}. SysML-AADL profiles have also been developed to support formal platform modeling~\cite{behjati2011extending,cofer2012compositional}. SysML supports relating requirements across all of the modeling elements.
+Through dedicated profiles, SysML notation can be extended.  For example, via a Modelica profile~\cite{paredis20105}, SysML can be used to model continuous systems. An automated translation is also available between Modelica and SysML.  Similar translations are also under development for VHDL-AMS~\cite{verries2013case}. SysML-AADL profiles have also been developed to support formal platform modeling~\cite{behjati2011extending,cofer2012compositional}. SysML supports relating requirements across all of the modeling elements.
 
 Due to the flexibility of the notation, SysML can therefore be used to capture many aspects of a system archiecture using a common notation. SysML further provides a requirements framework to allow requirements to be refined via associates to modeling  blocks, providing a similar capability to the AADL requirements annex discussed above.
 
 Recent work addresses fault modeling within SysML~\cite{pearce2013practical}, allowing SysML models to be annotated with failure modes, although this work is less mature than the AADL error annex.
 
-The SCADE-System~\cite{scade} defines an IMA modeling profile, that provides a framework to define  functional, logical and physical platform models within SysML. The tool also provides extensive framework to generate Interface Control Documents (ICD) from integrated  model. The tool additionally provides code generation to configured commercial partitioned operating systems  and network configuration tables from the system model.  The SCADE\_System tool is fully integrated with the SCADE
-Suite, hence lower-level system behaviour can be specified in SCADE but remains  linked to the higher level architectural.  Such properties, may make this variant of SysML and interesting synthesis target for ADSL.
+The SCADE-System~\cite{scade} defines an IMA modeling profile that provides a framework to define functional, logical and physical platform models within SysML. The tool also provides an extensive framework to generate Interface Control Documents (ICD) from integrated models. The tool additionally provides code generation to configured commercial partitioned operating systems and network configuration tables from the system model.  The SCADE\_System tool is fully integrated with the SCADE
+Suite, hence lower-level system behaviour can be specified in SCADE but remains linked to the higher level architecture.  Such properties make this variant of SysML and interesting synthesis target for ADSL.
 
 Matlab's Simulink~\cite{simulink} is  one of the most widely used
 model-based-design notations. It provides a very rich
@@ -60,7 +60,7 @@ semantics, and is defined with reference to the behavior of the simulator. The
 tooling also offers limited provisions for structured design and design
 factoring, which may also limit its applicability to true architectural
 modeling.    That said, many production systems have been developed using Simulink, and additional tools have been developed to broaden the
-applicability Simulink.   One such tool is HIPHOPS~\cite{papadopoulos2011engineering}, that allows for fault and error annotations to be added to the Simulink models, and provides a framework to use the model as the basis of Failure Mode and Effects Analysis (FMEA) and system fault-tree analysis and generation.
+applicability of Simulink.   One such tool is HIPHOPS~\cite{papadopoulos2011engineering}, that allows for fault and error annotations to be added to the Simulink models, and provides a framework to use the model as the basis of Failure Mode and Effects Analysis (FMEA) and system fault-tree analysis and generation.
  
 %% Here we briefly summarize other modeling languages for distributed systems. Our
 %% main goal in this work is to fill a gap that exists in languages for specifying
@@ -112,7 +112,7 @@ We present a specification of Byzantine Agreement in Section~\ref{ssec:synchrono
 \subsection{General-Purpose Formal Verification Tools}
 General-purpose formal verification tools have been applied extensively to the specification and verification of fault-tolerant distributed systems.
 
-Model checkers such as the \emph{Symbolic Analyasis Laboratory}
+Model checkers such as the \emph{Symbolic Analysis Laboratory}
 (SAL)~\cite{SRI:SAL}, SMV~\cite{nusmv}, and the \emph{Temporal Logic of
   Assertions} (TLA)'s model-checker~\cite{tla} have been used to specify and
 verify both software and hardware distributed systems and
