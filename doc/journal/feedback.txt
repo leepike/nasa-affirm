@@ -25,7 +25,7 @@ Pg 35 L 50. the broadcast operator that confused me above is used in a predicate
 In the oral messages example,  an explanation of the fast majority vote algorithm implemented in Figure 22 is  needed as the implementation is a bit terse.
 
 
-Pg 46 Figure 24 please explain the role of the PSU and acquisition modules.
+DONE Pg 46 Figure 24 please explain the role of the PSU and acquisition modules.
 
 
 The final case study of the airbus auto-brake system, the model abstracts away many details in order to do the analysis. There is not really point in generating code for this abstraction. I get the sense that some sort of B like refinement needs to be integrated into the tool so you can analyze an abstraction and the tool can help one refine the abstraction into something more realistic.  I would like to see the authors comment on their preferred solution to this abstraction gap between analyzable model and implementation.
