@@ -11,7 +11,7 @@ The paper under review introduces the Haskell based EDSL LIMA targeting fault-to
 
 DONE On Page 23 referencing Fig9 you should say more about the auto generated code. Like most auto generated code the variable names come of as a bit jarring when trying to figure out what is going on.
 
-Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
+DONE Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
 
 DONE The handler is discussed on page 24 but not really explained until later.
 
