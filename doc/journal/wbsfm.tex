@@ -1,18 +1,18 @@
 
 
-The formal model  of the  Wheel Brake System closely follows the structure  of  Figures 2.
+The formal model  of the  Wheel Brake System closely follows the structure of Figure~\ref{fig:BSCU_schematic}.
 However, to simplify the logic, and to reduce the size of the model, the
 three buttons of the brake control panel are abstracted into a single button
 that selects between manual and auto-mode operation.  The channel in control
 is also simplified from the temporal first-up raced based selection, to a  fixed-priority scheme, where a pre-configured preferred channel remains in control
-until it is faulted. Although simpler this model is sufficient to explore and demonstrate the byzantine failure vulnerability of the original system. 
+until it is faulted. Although simpler, this model is sufficient to explore and demonstrate the Byzantine failure vulnerability of the original system. 
 
 The formal model starts with a top-level wbs atom that is used
 to host all the system subcomponents. At the top level, three channels
 are also implemented, two to convey the button status to each of the lanes,
-and a third to convey the button state to the lane observer processes, that are used to host the properties that re to be formally investigated.
-The   implementation of the lanes leverages and illustrates DSL\ provisions for parameterized replication.
- Using a map as shown below,  each lane is instantiated using with an assigned boolean  priority;  as described above   this priority arbitrates which lane is on control when the system is in full-up operational mode (i.e. no faults present).
+and a third to convey the button state to the lane observer process.
+The   implementation of the lanes leverages and illustrates DSL provisions for parameterized replication.
+ Using a map as shown below,  each lane is instantiated with an assigned boolean  priority;  as described above   this priority arbitrates which lane is in control when the system is in full-up operational mode (i.e. no faults present).
 
 \begin{lima}
  -- Declare two lanes
@@ -59,7 +59,7 @@ atom "wait_x_side_autoMode" $ do
 
 The representation of the WBS\ model in the DSL\ is very compact with the core logic only requiring about 150 lines of code.
  When contrasted with the approximately 12,000
-lines of sally code, which the LIMA\ synthesizes,  this is a significant reduction. It may be argued, that without such a DSL and the associated synthesis, the industrial viability of sally alone may be challenging.
+lines of Sally code, which the LIMA\ synthesizes,  this is a significant reduction. It may be argued, that without such a DSL and the associated synthesis, the industrial viability of Sally alone may be challenging.
 
   
  Properties of interest  are simply asserted within any of the atoms as illustrated below. However, it should be noted that the variables used within the assert statements need to be within the atom scope.
@@ -75,15 +75,16 @@ lines of sally code, which the LIMA\ synthesizes,  this is a significant reducti
    assert (pName pp "my assert")(value agreementFailureCount <=. Const three)
 \end{lima}
 
-In the Airbus braking example, no physical faults were actually present. Hence, in our initial model, we also omit a  fault model. However, the DSL\ framework ensures that the full state of the asynchronous interaction of the sampling and channel in control logic, will be explored within the synthesized  sally model. Therefore, the workbench is anticipated to uncover the system Byzantine failure as part of the formal model analysis.
+In the Airbus braking example, no physical faults were actually present. Hence, in our initial model, we also omit a  fault model. However, the DSL framework ensures that the full state of the asynchronous interaction of the sampling and channel in control logic, will be explored within the synthesized  Sally model. Therefore, the workbench is anticipated to uncover the system Byzantine failure as part of the formal model analysis.
 
-As part of future work, we intend to augment the fault model
-of the intra-lane and inter-lane, communication channels, and use the DSL\
-and workbench to explore how such failures can impact the assumed system
-level invariants,
-and safety properties. We also intend to re-introduce the first up   leader
-election protocol, which selects the initial lane in control. One again,
-we envisage that this will demonstrate how the DSL\ and formal analysis workbench will support the systematic exploration of how
-potential faults, and start-up timing variations can disrupt and impact
-system safety properties and assumptions.  \   
+As part of future work, we intend to augment the fault model of the
+intra-lane and inter-lane communication channels, and use the
+DSL and workbench to explore how such failures can impact the assumed
+system level invariants and safety properties. We also intend to
+re-introduce the first up leader election protocol, which selects the
+initial lane in control. One again, we envisage that this will
+demonstrate how the DSL and formal analysis workbench will support
+the systematic exploration of how potential faults, and start-up
+timing variations can disrupt and impact system safety properties and
+assumptions.
 

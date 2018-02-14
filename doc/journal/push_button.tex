@@ -43,8 +43,8 @@ the corresponding mode is active.
 In the Airbus implementation, the buttons were sampled periodically by software
 every 25ms. Given the asynchronous composition of the system, each processor
 samples the button state relative to its own operating time-line. This
-implementation is vulnerable to short button presses that are too short (< 25ms)
-and therefore not consistently perceived by all of the sampling units as shown in figure \ref{fig:push_button_sampling}.
+implementation is vulnerable to short button presses that are too short ($< 25$ms)
+and therefore not consistently perceived by all of the sampling units as shown in Figure~\ref{fig:push_button_sampling}.
 (Additional inter-lane mode agreement logic, to mitigate Byzantine sampling is
 not implemented in the system~\footnote{Given that the command and monitor lanes
   are configured to be a fault-set, best practice would have implemented ingress
@@ -53,7 +53,7 @@ not implemented in the system~\footnote{Given that the command and monitor lanes
 monitoring lanes of both channels fell into disagreement, following the momentary 
 selection of the \texttt{LO} auto-brake mode. The \texttt{LO} selection was only detected by one
 of the lanes of each channel, hence the command and monitor mode disagreement
-detection logic was erroneously stimulated . In the excursion, the disagreement
+detection logic was erroneously stimulated. In the excursion, the disagreement
 occurred on both channels simultaneously. Given that the system mode logic was
 also event driven, there was no path to recovery. Pressing \texttt{LO} would be subject
 to the same Byzantine vulnerability, and even if not Byzantine, the
@@ -68,19 +68,17 @@ consistent state.
 \end{center}
 \end{figure}
 
- The design errors represent a failures uncovered by the traditional design assurance
- framework.  Given, the correct by construction synthesis focus, it is unlikely
+ The design errors represent a failure uncovered by the traditional design assurance
+ framework.  Given the correct-by-construction synthesis focus, it is unlikely
  that our approach would allow such an implementation to be developed.  However,
  ensuring that the formal synthesis framework is sufficient to represent and
  explore such design vulnerabilities is a good test case for the ADSL formal
- tooling.  In addition to the agreement and mitigation if the Byzantine failure
- of the push button detection, the A320 Airbus brake system offers a good context
- to expand initial ADSL asynchronous exploration. For example, the system also
+ tooling.  The A320 Airbus brake system offers a good case-study in asynchronous system design and verification. For example, the system also
  requires a protocol to manage the channel in control, and additional logic and
  protocols to that communication is healthy.  From the incident report these
  details of the Airbus protocol implementations in these areas are not
  available. From the description it appears that the channel-in-control logic
- utilizes and asymmetric power-on timeout to yield a first-up channel in
+ utilizes an asymmetric power-on timeout to yield a first-up channel in
  control. This may also leave the system vulnerable to assumptions of BSCU
  power-on order, and transient recovery strategies.  The protocols may also be
  vulnerable to failures of the inter-lane and inter-channel communication lines.

@@ -98,20 +98,20 @@ ln 48: writes
 pg 45, ln 58: analysis are detailed
 Figure 25:  words too small in the figure
 
-pg 48, ln 37: Figure
-ln 46: extra space
-ln 56: failure
-ln 58: Given the correct-by-construction synthesis
-pg 49, ln 6-8:  Not sure how to parse this phrase
-ln 16: utilizes an
-ln 35: Figure 2
-ln 46: Although simpler, this . . . . the Byzantine
-ln 54: processes that
-ln 56: that are
-pg 50, ln 1: delete 'using'
-ln 4: in control
-pg 51 (and 52):  Sally should be capitalized throughout
-ln 45: process that
-pg 52, paragraph 2: many extra commas
+x pg 48, ln 37: Figure
+x ln 46: extra space
+x ln 56: failure
+x ln 58: Given the correct-by-construction synthesis
+x pg 49, ln 6-8:  Not sure how to parse this phrase
+x ln 16: utilizes an
+x ln 35: Figure 2
+x ln 46: Although simpler, this . . . . the Byzantine
+x ln 54: processes that
+x ln 56: that are
+x pg 50, ln 1: delete 'using'
+x ln 4: in control
+x pg 51 (and 52):  Sally should be capitalized throughout
+x ln 45: process that
+x pg 52, paragraph 2: many extra commas
 
 Watch your references!  Almost all of them have mis-capitalizations and gobbledygook.
