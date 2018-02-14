@@ -203,7 +203,12 @@ argument.
 The majority vote computation is specified using the ``Fast Majority Vote''
 algorithm due to Boyer and Moore \cite{mjrty}. This algorithm requires only a
 single pass over the vote buffer. This is accomplished in our DSL using a
-right fold operation as seen in Figure~\ref{fig:majority-vote}. It is worth
+right fold operation as seen in Figure~\ref{fig:majority-vote}. A buffer value
+and a counter are maintained during the pass. When the next element in the
+buffer equals the currently maintained value, the counter is increased. If the
+next element is different and the counter is zero, then the maintained value
+is replaced, else the counter is decreased. In this way, at the end of the
+pass, if there is a majority, it will be equal to the value maintained. It is worth
 pointing out here that it is precisely this aspect, the level of detail in
 implementing the majority vote, that sets our model of \OM(1) apart from
 previous models.

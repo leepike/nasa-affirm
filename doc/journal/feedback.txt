@@ -20,9 +20,9 @@ DONE The translation of the handler to Sally illustrated in Figure 14 needs a bi
 
 DONE Pg 35 L 25  I am a bit confused by the definition of broadcast the accompanying text says it returns a set of calendar events which I understand would look like  \{ (e_i, t_i), (e_j, t_j), (e_k, t_k),….\} but it seems to be a set of messages. And the way it reads the m returned is the same m in the parameter of broadcast. It may be me, but please  clarify because I suspect I won’t be the only one confused.
 
-Pg 35 L 50. the broadcast operator that confused me above is used in a predicate. Its type is 2^E while I would expect a bool here.
+DONE Pg 35 L 50. the broadcast operator that confused me above is used in a predicate. Its type is 2^E while I would expect a bool here.
 
-In the oral messages example,  an explanation of the fast majority vote algorithm implemented in Figure 22 is  needed as the implementation is a bit terse.
+DONE In the oral messages example,  an explanation of the fast majority vote algorithm implemented in Figure 22 is  needed as the implementation is a bit terse.
 
 
 Pg 46 Figure 24 please explain the role of the PSU and acquisition modules.

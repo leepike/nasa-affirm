@@ -753,7 +753,8 @@ Define $rnd: \mathbb{R} \rightarrow \mathbb{N}$ such that if
 $rnd(t_0) < rnd(t_1)$, then $t_0 < t_1$.  A $broadcast: \Id \rightarrow
 2^{\Id} \rightarrow \mathbb{R} \rightarrow \Msg \rightarrow 2^{E}$
 takes a sender, a set of receivers, a real-time, and a message to
-send each receiver, and returns a set of calendar events: $$broadcast(i,
+send each receiver, and returns a set of calendar events (recall that $E$
+refers to the set of possible events): $$broadcast(i,
 R, t, m) = \{ (i,j,t,m) | j \in R \textnormal{ and } send(i, j, t) = m\}$$
 
 With this machinery, we can define the semantics of faults by
