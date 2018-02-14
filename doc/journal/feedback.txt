@@ -6,7 +6,8 @@ DIGITAL OBJECT IDENTIFIER (DOI). The DOI (Digital Object Identifier) should be i
 
 RELEVANT FUNDING INFORMATION.  Authors are responsible for accurately reporting funding data relevant to their research. Please ensure that you have correctly entered all sources of funding and grant/award numbers for all authors of the manuscript in the funding data fields in ScholarOne AND   in your revised manuscript (prior to the acknowledgments and/or reference sections).
 
-ecked. A code generator is used to generate  C code to implement the model.
+The Editors particularly desire your specific comments on technical content, overall value, relevancy, accuracy of computed results or experimental data, and revisions needed for conciseness, clarity, and/or completeness.
+The paper under review introduces the Haskell based EDSL LIMA targeting fault-tolerant critical systems. Users build a model of their systems in terms of built in abstractions of hierarchal nested atoms and channels. The tool can be used to analyze the model using the  SALLY model checker. LIMA can automatically translate its model into a Sally model and also translate LIMA  properties into SALLY specifications that can be model checked. A code generator is used to generate  C code to implement the model.
 
 On Page 23 referencing Fig9 you should say more about the auto generated code. Like most auto generated code the variable names come of as a bit jarring when trying to figure out what is going on.  Also, when discussing auto generated code you might want to mention the certification challenges (DO 178C, …) that must be addressed if the LIMA is to be use in aerospace.
 
@@ -96,6 +97,7 @@ ln 40: Figure
 ln 48: writes
 pg 45, ln 58: analysis are detailed
 Figure 25:  words too small in the figure
+
 pg 48, ln 37: Figure
 ln 46: extra space
 ln 56: failure
