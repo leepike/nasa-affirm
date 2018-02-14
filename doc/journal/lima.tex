@@ -95,7 +95,7 @@ we use the term ``handler'' to mean a function that takes an incoming message
 and returns an action to perform, usually doing some computation and sending
 out new messages.
 
-Atom are hierarchical, i.e.\ an atom may contain other atoms and thus define a
+Atoms are hierarchical, i.e.\ an atom may contain other atoms and thus define a
 hierarchy of global state variables and sub-atoms. All atoms declared
 within a parent atom have access to the shared state of the parent. For example,
 
@@ -144,7 +144,7 @@ parent's parent, etc.
 
 \subsubsection{Specifying Faults}
 
-Here we  explain how we account for fault models in LIMA, leaving the
+Here we  explain how we account for the fault models in LIMA, leaving the
 technical details of how faults are encoded in the formal model to Section~\ref{ssec:fault-models}. Part of the philosophy behind our ADSL is that node
 behavior and fault behavior should be separate in order to make reasoning
 more modular. It is not a surprise then that the number and type of faults to
@@ -157,7 +157,7 @@ Currently there are three options for fault model in LIMA:
     \item \textbf{No Faults}. All nodes in the system perform as designed and channels
         deliver all messages on time.
     \item \textbf{Fixed Faults}. A mapping from node name to fault type is given,
-        alowing the designer to specify statically the nature of faults to be
+        allowing the designer to specify statically the nature of faults to be
         considered.
     \item \textbf{Hybrid Fault Model}. The designer specifies numerical weights for
         each of three types of fault: manifest, symmetric, and byzantine. In
@@ -453,7 +453,7 @@ implemented by adding a (future) time, channel identifier, and message content
 to the calendar. At the proper time, a transition is enabled for the receiver
 to act upon the message. This mechanism is described in more detail below. In
 the Sally transition relation, the notations \texttt{msg\_pending(\ldots)},
-\texttt{msg\_read(\ldots)}, and \texttt{msg\_send(\ldots)} are short hand for more
+\texttt{msg\_read(\ldots)}, and \texttt{msg\_send(\ldots)} are shorthand for more
 complicated expressions:
 
 \begin{itemize}
@@ -500,7 +500,7 @@ timeout = atom "timeout" $ do
 In this example, the relationship between the
 outer atom and the inner atom is key. The \y{flag} and \y{channel} are shared between
 the two atoms (being in scope for both of them), but the ``on\_wake'' atom's
-execution is predicated on the guard of both itself, and it's parent. Since
+execution is predicated on the guard of both itself, and its parent. Since
 the parent has no guard in this case we can think of ``timeout'' and
 ``on\_wake'' as two different nodes communicating over the ``self\_loop''
 channel.

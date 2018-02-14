@@ -79,25 +79,25 @@ x pg 14, ln 37: As shown
 x ln 54: single
 x pg 16, ln 16: broadcast are all
 x line 34: into its own
-ln 43-45:  what is the gobbledygook?
-ln 58:  Doesn't parse well
-pg 17, ln 26:  gobbledygook
-pg 18, ln 48: remove 'and'
-pg 19, ln 12: (nominal)
-ln 18: etc.
-ln 43: as a component
-ln 45: in an ADSL
-pg 21, ln 38: Atoms are
-pg 23, ln 2: for the fault
-ln 9: allowing
-pg 28, ln 40: shorthand
-pg 30, ln 6: its
-pg 39, ln 52: set them up
-pg 42, ln 33: Figure
-ln 40: Figure
-ln 48: writes
-pg 45, ln 58: analysis are detailed
-Figure 25:  words too small in the figure
+x ln 43-45:  what is the gobbledygook?
+x ln 58:  Doesn't parse well
+x pg 17, ln 26:  gobbledygook
+x pg 18, ln 48: remove 'and'
+x pg 19, ln 12: (nominal)
+x ln 18: etc.
+x ln 43: as a component
+x ln 45: in an ADSL
+x pg 21, ln 38: Atoms are
+x pg 23, ln 2: for the fault
+x ln 9: allowing
+x pg 28, ln 40: shorthand
+x pg 30, ln 6: its
+x pg 39, ln 52: set them up
+x pg 42, ln 33: Figure
+x ln 40: Figure
+x ln 48: writes
+x pg 45, ln 58: analysis are detailed
+x Figure 25:  words too small in the figure
 
 x pg 48, ln 37: Figure
 x ln 46: extra space
