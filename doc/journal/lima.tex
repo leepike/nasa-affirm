@@ -640,7 +640,7 @@ holds iff the message $m$ received by $j$ from $i$ at time $t$.
 
 In the absence of faults, we require that messages received were
 previously sent and not previously received: if $(i, j, t, m) \in recv$,
-then $\exists t'$ such that $(i, j, t', m) \in recv$ where $t' < t$, and
+then $\exists t'$ such that $(i, j, t', m) \in send$ where $t' < t$, and
 $\neg\exists t''$ such that $t' < t'' < t$ and $(i, j, t'', m) = (i, j,
 t, m)$. (We address faults in Section~\ref{ssec:fault-models}.)
 
