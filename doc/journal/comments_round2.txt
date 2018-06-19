@@ -1,0 +1,76 @@
+-Manuscript is too long; see length specifications in "Manuscript Style and Format" instructions at http://www.https://mc.manuscriptcentral.com/aiaa/aiaa/documents/manustyleformat.pdf.
+
+The link referenced link is malformed. The site https://mc.manuscriptcentral.com/aiaa/aiaa/documents/manustyleformat.pdf displays a login page only.
+
+-Title must not exceed 12 words (preferably 6-8); do not use acronyms or abbreviations.
+
+The title is 10 words long.
+
+-Limit authors to those who have made significant contributions to paper; others may be thanked in an Acknowledgments section (preceding References).
+
+We have done so.
+
+-List job title, department, division, complete mailing address (including ZIP), and AIAA membership grade (if any) for each author in footnote on first page (e-mail address optional).
+
+@Lee: do you know how to do this?
+
+-Grammar needs improvement.  Authors must consult with a native English-speaking colleague to get help revising the paper into acceptable English.  The paper will not be accepted for review until an acceptable revision is received.
+
+This is not actionable without more specific information. All four authors are native english speakers.
+
+-Revise or shorten Abstract in accordance with instructions listed at http://www.https://mc.manuscriptcentral.com/aiaa/aiaa/documents/AbstractInstr.pdf.
+
+Again, the link is malformed.
+
+-Add Nomenclature section to identify characters and symbols used (do not include acronyms); list terms in alphabetical order and place Nomenclature between Abstract and Introduction. Nomenclature entries should have the
+appropriate units identified.
+
+We did not address this comment.
+
+-Revise Introduction to clearly indicate the motive for the topic and put it into perspective with previously published, publicly available work.  The archival contribution of the paper must be made clear in the context of the previous work.
+
+We beleive the introduction stands to motivate the topic.
+
+-Revise Conclusions to reflect those that can actually be drawn from the text; they must not be summary of the paper.  The Conclusions (and Abstract) must not have undefined acronyms.  The Conclusions must stand alone and must not contain equations, references, or strategic referrals to the main body of the text.
+
+Done.
+
+-Do not use organizational names in text unless part of a facility name; mention in Acknowledgments section instead (preceding References).
+
+All such refernces are made in the Acknowledgments section.
+
+-Use metric or dual (metric and English) dimensions throughout, including artwork (mandatory for AIAA Journal and Journal of Thermophysics and Heat Transfer; for all journals, use of units must be consistent throughout paper).
+
+No dimensions are used in this paper.
+
+-Equations must be in numerical order.
+
+They are.
+
+-References must comply with "Reference Format" instructions at https://mc.manuscriptcentral.com/aiaa.
+
+Done.
+
+-All references must be cited in text (in numerical order).
+
+Done.
+
+-Delete classified references.
+
+There are none.
+
+-Delete personal/private communications (may be placed in Acknowledgments section).
+
+There are none.
+
+-Delete references to personal Web sites (may be placed in footnotes).
+
+No such references are present.
+
+-Figure lettering size must comply with "Manuscript Style and Format" instructions at http://www.https://mc.manuscriptcentral.com/aiaa/aiaa/documents/manustyleformat.pdf.
+
+Again, the link is malformed, but we believe the article conforms to the manuscript standard.
+
+-Cite figures and tables in numerical order in text.
+
+Done.

@@ -130,7 +130,6 @@ In modeling distributed systems, we must often assign clocks to atoms to measure
 \item {\it period} is the periodicity of the task i.e. inverse of the frequency of the task.
 \end{itemize}
 
-<<<<<<< HEAD
 All \emph{derived} clocked atoms or \emph{sub-atoms} from parent have
 synchronous clocks with respect to the parent clock. This means, as shown in
 figure \ref{fig:sync_clock_atom_model}, the $startup$ of the sub-atoms are
@@ -179,7 +178,14 @@ Also note that as shown in the Figure~\ref{fig:channel_buffer}, there is string 
 
 The process is then reversed at the receiver. The receiver network card consumes the message from the channel and stores the message locally into its own channel buffer (network card memory). Then either the network card reads from its channel buffer and pushes the message to consuming platform process OR the consuming platform process reads from the channel buffer and then finally processes the message as it sees fit (possibly sent to a computation process).
 
-Since Produce/Transmission at $T$ and Consume/Reception(s) at $R$ can be triggered by ``independent'' clocked atoms (described in section \ref{subsubsec:clock_model}) at $T$ and $R(s)$. So buffer model is critical to manage the differences in rates and timing between production and consumption. Once the processes are correctly modeled as stated above, then we identify two types of channel buffers at either the transmitter or at the receivers:
+Since Produce/Transmission at $T$ and Consume/Reception(s) at $R$ can be
+triggered by ``independent'' clocked atoms (described in section
+\ref{subsubsec:clock_model}) at $T$ and $R(s)$, the buffer model is critical
+to manage the differences in rates and timing between production and
+consumption. Once the processes are correctly modeled as stated above, then we
+identify two types of channel buffers at either the transmitter or at the
+receivers:
+
 \begin{itemize}
 \item \emph{Queuing}: First-in-First-Out (FIFO) Order i.e. messages are taken out of the queue in the order in which data was produced into it.  The maximum size of the queue is also specified as $k$. If messages are not consumed at fast enough rate compared to rate at which message are produced into the buffer and once the queue is already filled with ``k'' messages yet to be consumed, then produced message(s) are dropped. 
 
