@@ -12,7 +12,7 @@ We have done so.
 
 -List job title, department, division, complete mailing address (including ZIP), and AIAA membership grade (if any) for each author in footnote on first page (e-mail address optional).
 
-@Lee: do you know how to do this?
+Fixed.
 
 -Grammar needs improvement.  Authors must consult with a native English-speaking colleague to get help revising the paper into acceptable English.  The paper will not be accepted for review until an acceptable revision is received.
 

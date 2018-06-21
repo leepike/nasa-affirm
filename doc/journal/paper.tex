@@ -1,4 +1,4 @@
-\documentclass{AIAA_REVTeX41/AIAA}
+\documentclass{AIAA}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -82,9 +82,9 @@
 
 \title{A Language for Unified Verification and Implementation for Distributed Avionics}
 
-\author{Benjamin F. Jones\footnote{Software Engineer} and Lee Pike\footnote{Software Engineer}}
-\affiliation{Groq, Inc. (address undisclosed). Work performed while at Galois, Inc. 421 SW 6th Ave, Portland, OR 97204}
-\author{Srivatsan Varadarajan\footnote{Staff Scientist} and Brendan Hall\footnote{Engineer Fellow}} \affiliation{Honeywell Advanced Technology, 1985 Douglas Dr. N, Golden Valley, Minnesota, 55422}
+\author{Benjamin F. Jones\footnote{Software Engineer. Work performed while at Galois, Inc. 421 SW 6th Ave, Portland, OR 97204.} and Lee Pike\footnote{Software Engineer. Work performed while at Galois, Inc. 421 SW 6th Ave, Portland, OR 97204.}}
+\affiliation{Groq, Inc.}
+\author{Srivatsan Varadarajan\footnote{Staff Scientist. Honeywell Advanced Technology, 1985 Douglas Dr. N, Golden Valley, Minnesota, 55422.} and Brendan Hall\footnote{Engineer Fellow. Honeywell Advanced Technology, 1985 Douglas Dr. N, Golden Valley, Minnesota, 55422.}} \affiliation{Honeywell Advanced Technology}
 
 \begin{abstract}
 In designing, verifying, and validating distributed systems today, an engineer is often faced with having to specify a system multiple times. For example, the engineer might specify it once in a model-checker for formal analysis, in an architectural description language for requirements analysis, and in a programming language for testing. By specifying the same system multiple times, there is risk that each specification has different semantics, so that the system tested differs from the one verified, for example. To help solve this problem, we envision an \emph{architectural domain-specific language} (ADSL), or a unified language from which formal models, executable code, and architectural models can be synthesized. To make our problem tractable, we focus on distributed fault-tolerant systems. We present the \emph{\textbf{L}anguage for \textbf{I}ntegrated \textbf{M}odeling and \textbf{A}nalysis} (LIMA), a particular ADSL that we have designed. We describe LIMA and its application to case-studies motivated by avionics design.
