@@ -1,0 +1,66 @@
+1. OK.
+
+2. Looks good
+
+3. Looks good
+
+4. Rephrasing sounds great
+
+5. Rephrase as: "This way, both horizontal propagation of faults (e.g., the
+earlier CRC propagation) and vertical propagation of faults (e.g.,
+self-checking hardware) can be modeled in the ADSL as components embedded in
+other components.
+
+6. Add a reference to Figures 8 to the sentence on page 9 beginning:
+"Auto-generated code like that shown in Fig. 10 is only ... " so that it
+reads: "Auto-generated code like that shown in Figures 8 and 10 are only ..."
+
+To the end of the first paragraph of page 14, add the sentence:
+"Such an event calendar is synthesised automatically by LIMA from a handler
+like the generic example specified in Figure 13."
+
+7. This whole paragraph was supposed to be a direct quote attributed to John
+Rushby from his "SAL Tutorial" paper [54]. In the last version of the paper we
+uploaded, this appeared as a block quote on page 33.
+
+8. "Fast Majority Vote" is the name of the algorithm. The sentence
+appears correct as is.
+
+9. Combine the first two sentences as follows:
+"The formal model generated for OM(1) by LIMA is quite large compared to the
+input specification: the LIMA input is 5,632 bytes compares to
+the the formal model (Sally input format) which is 110,581 bytes."
+
+10. Rephrase to:
+"The channel in control is also simplified to a fixed-priority scheme ..."
+
+11. Rephrase to:
+"The specification starts with a top-level atom called "wbs" (standing for
+wheel brake system) that is used to host ..."
+
+12. Ref. 1 author is Dvorak D. only.
+    Ref 75  author is Jones S.P. only.
+
+We also noticed that in Ref. 76 there is a ~ character missing from the URL.
+It should be: https://www.cs.indiana.edu/~lepike/pub_pages/ivory.html
+
+Also, the URL in Ref. 80 looks malformed. The correct URL is:
+https://www.mathworks.com/tagteam/74250_Paper%20Number%2012AEAS-0090-finalweb.pdf
+
+13. Addition reference details:
+
+Ref 1:
+number = AIAA 2009-1882
+location = AIAA Infotech at Aerospace Conference and Exhibit and AIAA Unmanned...Unlimited Conference, Seattle WA.
+
+Ref 5:
+type = NASA Contractor Report
+number = CR-1999-209347
+institution = NASA Langley Research Center, Hampton VA
+
+Ref 8:
+number = CMU/SEI-2006-TN-011
+institution = Software Engineering Institute, Carnegie Mellon University
+location = Pittsburgh, PA
+
+14. 
